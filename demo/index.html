@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redprints Demo</title>
+</head>
+<body>
+  <button id="openModal">Abrir Modal</button>
+
+  <red-modal id="modal">
+    <h2 slot="header">Eliminar usuario</h2>
+    <p>Esta acción no se puede deshacer.</p>
+    <div slot="footer">
+      <button data-action="cancel">Cancelar</button>
+      <button data-action="confirm">Eliminar</button>
+    </div>
+  </red-modal>
+
+  <script type="module">
+    import "../src/index.ts";
+
+    const modal = document.getElementById("modal");
+
+    document.getElementById("openModal").addEventListener("click", () => {
+      modal.open();
+    });
+
+    modal.addEventListener("modal-confirm", () => alert("Usuario eliminado"));
+    modal.addEventListener("modal-cancel", () => alert("Acción cancelada"));
+    modal.addEventListener("modal-opened", () => console.log("Modal abierto"));
+    modal.addEventListener("modal-closed", () => console.log("Modal cerrado"));
+  </script>
+</body>
+</html>
