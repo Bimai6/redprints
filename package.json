@@ -1,0 +1,31 @@
+{
+  "name": "redprints",
+  "version": "1.0.0",
+  "description": "Reusable UI primitive components",
+  "homepage": "https://github.com/Bimai6/redprints#readme",
+  "bugs": {
+    "url": "https://github.com/Bimai6/redprints/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bimai6/redprints.git"
+  },
+  "license": "MIT",
+  "author": "Bimai6",
+  "type": "module",
+  "main": "./dist/redprints.umd.cjs",
+  "module": "./dist/redprints.js",
+
+  "exports": {
+    ".": "./dist/redprints.js"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
