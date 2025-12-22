@@ -7,6 +7,8 @@
 <body>
   <button id="openModal">Abrir Modal</button>
 
+  <button id="openToast">Abrir Toast</button>
+
   <red-modal id="modal">
     <h2 slot="header">Eliminar usuario</h2>
     <p>Esta acción no se puede deshacer.</p>
@@ -16,19 +18,32 @@
     </div>
   </red-modal>
 
+  <red-toast id="toast" duration="2000">
+    <h3 slot="header">Confirmado</h3>
+    <p>Gracias por su accion</p>
+  </red-toast>
+
   <script type="module">
     import "../src/index.ts";
 
     const modal = document.getElementById("modal");
+    const toast = document.getElementById("toast");
 
     document.getElementById("openModal").addEventListener("click", () => {
       modal.open();
     });
 
+    document.getElementById("openToast").addEventListener("click", ()=>{
+      toast.show();
+    })
+
     modal.addEventListener("modal-confirm", () => alert("Usuario eliminado"));
     modal.addEventListener("modal-cancel", () => alert("Acción cancelada"));
     modal.addEventListener("modal-opened", () => console.log("Modal abierto"));
     modal.addEventListener("modal-closed", () => console.log("Modal cerrado"));
+
+    toast.addEventListener("toast-opened", () => console.log("Toast abierto"));
+    toast.addEventListener("toast-closed", () => console.log("Toast cerrado"));
   </script>
 </body>
 </html>
